@@ -2,11 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Song Detail</title>
+    <link th:replace="~{fragments :: boostrapLink}" />
 </head>
 <body>
     <h1>Song Detail</h1>
     <p th:text="${songTitle}"></p>
     <a href="/songs">Torna alla lista delle canzoni</a> |
     <a href="/">Torna alla Home</a>
+    <script th:replace="~{fragments :: bootstrapScript}"></script>
 </body>
 </html>

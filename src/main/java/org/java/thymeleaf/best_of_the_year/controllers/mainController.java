@@ -61,16 +61,8 @@ public class mainController {
     @GetMapping("/movies")
     public String getMovies(Model model) {
 
-        // Richiamo metodo che mi ritorna una lista di film con id e titolo
-        ArrayList<Movie> movies = getBestMovies();
-
-        // Creo una stringa con i titoli dei film
-        String movieTitles = movies.stream()
-                .map(Movie::getTitolo)
-                .collect(Collectors.joining(", "));
-
-        // Passo la stringa al modello come attributo movieTitles
-        model.addAttribute("movieTitles", movieTitles);
+        // Passiamo la lista al Model
+        model.addAttribute("movies", getBestMovies());
 
         // Ritorno il template html thymeleaf di nome movies dove uso movieTitles in un
         // tag p
@@ -80,14 +72,9 @@ public class mainController {
     // Stessa cosa ma per le songs
     @GetMapping("/songs")
     public String getSongs(Model model) {
+        // Passiamo la lista al Model
+        model.addAttribute("songs", getBestSongs());
 
-        ArrayList<Song> songs = getBestSongs();
-
-        String songTitles = songs.stream()
-                .map(Song::getTitolo)
-                .collect(Collectors.joining(", "));
-
-        model.addAttribute("songTitles", songTitles);
         return "songs";
     }
 

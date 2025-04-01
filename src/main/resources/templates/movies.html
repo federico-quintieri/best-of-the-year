@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <title>Best Movies</title>
-</head>
-<body>
+
+    <link th:replace="~{fragments :: boostrapLink}" />
+  </head>
+  <body>
     <h1>Best Movies</h1>
-    <!-- Utilizzo attributo movieTitles del modello fatto nel controller -->
-    <p th:text="${movieTitles}"></p>
+    <ul>
+      <!-- Mi ciclo la lista passata e per ogni elemento mi fa un tag a dove estrapola id e titolo -->
+      <li th:each="movie : ${movies}">
+        <a
+          th:href="@{/movies/{id}(id=${movie.id})}"
+          th:text="${movie.titolo}"
+        ></a>
+      </li>
+    </ul>
     <a href="/">Torna alla Home</a>
-</body>
+
+    <script th:replace="~{fragments :: bootstrapScript}"></script>
+  </body>
 </html>
