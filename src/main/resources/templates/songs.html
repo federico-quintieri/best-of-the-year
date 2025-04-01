@@ -5,13 +5,19 @@
     <link th:replace="~{fragments :: boostrapLink}" />
   </head>
   <body>
-    <h1>Best Songs</h1>
-    <ul>
-      <li th:each="song : ${songs}">
-        <a th:href="@{/songs/{id}(id=${song.id})}" th:text="${song.titolo}"></a>
-      </li>
-    </ul>
-    <a href="/">Torna alla Home</a>
+    <div class="container text-center">
+      <div th:replace="~{home ::header}"></div>
+      <h1>Best Songs</h1>
+      <ul>
+        <li th:each="song : ${songs}">
+          <a
+            th:href="@{/songs/{id}(id=${song.id})}"
+            th:text="${song.titolo}"
+          ></a>
+        </li>
+      </ul>
+      <a href="/">Torna alla Home</a>
+    </div>
     <script th:replace="~{fragments :: bootstrapScript}"></script>
   </body>
 </html>

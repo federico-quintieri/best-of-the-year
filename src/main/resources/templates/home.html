@@ -4,14 +4,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <title>Best of the Year</title>
     <link th:replace="~{fragments :: boostrapLink}" />
   </head>
   <body>
     <!-- Aggiungo un titolo dinamico -->
-    <h1>Best of the year <span th:text="${nome}"></span></h1>
+    <div class="container text-center">
+      <div
+        th:fragment="header"
+        class="d-flex flex-row mt-4 justify-content-between"
+      >
+        <h1>Best of</h1>
+        <div>
+          <a th:replace="~{fragments :: aLink('/movies','Movie list')}"></a>
+          <a th:replace="~{fragments :: aLink('/songs','Song list')}"></a>
+        </div>
+      </div>
+      <h3>Best of by...</h3>
 
+      <div th:insert="~{fragments :: cardDiv('image')}"></div>
+      <div th:insert="~{fragments :: cardDiv('lorem ipsum')}"></div>
+    </div>
     <script th:replace="~{fragments :: bootstrapScript}"></script>
   </body>
 </html>

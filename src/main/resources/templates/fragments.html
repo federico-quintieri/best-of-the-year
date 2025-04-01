@@ -13,6 +13,21 @@
     />
   </head>
   <body>
+    <!-- Frammento a link -->
+    <a
+      th:fragment="aLink(link,title)"
+      th:href="@{${link}}"
+      th:text="${title}"
+      class="btn btn-primary"
+    ></a>
+
+    <!-- Frammento div -->
+    <div
+      th:fragment="cardDiv(content)"
+      th:text="${content}"
+      class="bg-secondary my-2"
+    ></div>
+
     <!-- Script bootstrap -->
     <script
       th:fragment="bootstrapScript"

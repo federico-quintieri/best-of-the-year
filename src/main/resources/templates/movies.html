@@ -6,18 +6,20 @@
     <link th:replace="~{fragments :: boostrapLink}" />
   </head>
   <body>
-    <h1>Best Movies</h1>
-    <ul>
-      <!-- Mi ciclo la lista passata e per ogni elemento mi fa un tag a dove estrapola id e titolo -->
-      <li th:each="movie : ${movies}">
-        <a
-          th:href="@{/movies/{id}(id=${movie.id})}"
-          th:text="${movie.titolo}"
-        ></a>
-      </li>
-    </ul>
-    <a href="/">Torna alla Home</a>
-
+    <div class="container text-center">
+      <div th:replace="~{home ::header}"></div>
+      <h1>Best Movies</h1>
+      <ul class="text-decoration-none">
+        <!-- Mi ciclo la lista passata e per ogni elemento mi fa un tag a dove estrapola id e titolo -->
+        <li th:each="movie : ${movies}">
+          <a
+            th:href="@{/movies/{id}(id=${movie.id})}"
+            th:text="${movie.titolo}"
+          ></a>
+        </li>
+      </ul>
+      <a href="/">Torna alla Home</a>
+    </div>
     <script th:replace="~{fragments :: bootstrapScript}"></script>
   </body>
 </html>
